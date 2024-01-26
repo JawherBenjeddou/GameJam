@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://byv2nw33246r1"]
+
+[ext_resource type="Script" path="res://Player/clown.gd" id="1_nce81"]
+[ext_resource type="Texture2D" uid="uid://cowf407toa7td" path="res://art/PlayerModel.png" id="2_kx40o"]
+[ext_resource type="PackedScene" uid="uid://e6n721ejmec2" path="res://Player/weapons/hand.tscn" id="3_yixb2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7r4i"]
+radius = 5.0
+height = 32.0
+
+[node name="Clown" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_nce81")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_kx40o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n7r4i")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="Weapon" type="Node2D" parent="."]
+position = Vector2(13, 5)
+
+[node name="Hand" parent="Weapon" instance=ExtResource("3_yixb2")]
+position = Vector2(23, 1)
