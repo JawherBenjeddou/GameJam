@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://mjvj3kl5mceb"]
+
+[ext_resource type="Script" path="res://scripts/Character/CharacterController.gd" id="1_5qkcn"]
+[ext_resource type="Texture2D" uid="uid://csppu5ree5hpp" path="res://Art/Sprites/icon.svg" id="1_n5pxw"]
+
+[sub_resource type="GDScript" id="GDScript_qfiqn"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="Animation" id="Animation_w7476"]
+resource_name = "melee"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Marker2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(337, 130), Vector2(349, 144), Vector2(349, 144), Vector2(349, 217)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Node2D/Marker2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.5516, -0.986111, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_kbplf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Node2D/Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.986111]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xs67j"]
+_data = {
+"RESET": SubResource("Animation_kbplf"),
+"melee": SubResource("Animation_w7476")
+}
+
+[node name="WORLD" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(584, 321)
+script = SubResource("GDScript_qfiqn")
+
+[node name="Clown" type="CharacterBody2D" parent="."]
+motion_mode = 1
+script = ExtResource("1_5qkcn")
+
+[node name="Sprite2D" type="Sprite2D" parent="Clown"]
+position = Vector2(232, 182)
+texture = ExtResource("1_n5pxw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Clown"]
+position = Vector2(232, 182)
+polygon = PackedVector2Array(64, -58.1, 64, 55, 55.7, 64, -56.3, 64, -64, 58, -64, 55, -64, -55.1, -58.1, -64, -55.5, -64, 55.1, -64)
+
+[node name="MeleeAttackAnimation" type="AnimationPlayer" parent="Clown"]
+libraries = {
+"": SubResource("AnimationLibrary_xs67j")
+}
+
+[node name="Node2D" type="Node2D" parent="Clown"]
+visible = false
+
+[node name="Marker2D" type="Marker2D" parent="Clown/Node2D"]
+position = Vector2(337, 130)
+rotation = -0.986111
+
+[node name="Sprite2D" type="Sprite2D" parent="Clown/Node2D/Marker2D"]
+position = Vector2(30, 8)
+scale = Vector2(0.856299, 0.256626)
+texture = ExtResource("1_n5pxw")

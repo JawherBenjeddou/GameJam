@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bq4sru12nujnc"]
+
+[node name="TextBox" type="MarginContainer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2

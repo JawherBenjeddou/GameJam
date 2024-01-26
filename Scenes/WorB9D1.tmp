@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://mjvj3kl5mceb"]
+
+[ext_resource type="Script" path="res://scripts/CharacterController.gd" id="1_5qkcn"]
+[ext_resource type="Texture2D" uid="uid://csppu5ree5hpp" path="res://icon.svg" id="1_n5pxw"]
+
+[sub_resource type="GDScript" id="GDScript_qfiqn"]
+script/source = "extends Camera2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="WORLD" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(584, 321)
+script = SubResource("GDScript_qfiqn")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("1_5qkcn")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(232, 182)
+texture = ExtResource("1_n5pxw")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D"]
+position = Vector2(232, 182)
+polygon = PackedVector2Array(64, -58.1, 64, 55, 55.7, 64, -56.3, 64, -64, 58, -64, 55, -64, -55.1, -58.1, -64, -55.5, -64, 55.1, -64)

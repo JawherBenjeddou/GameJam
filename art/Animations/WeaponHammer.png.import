@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ds4nxjx5yau4b"
-path="res://.godot/imported/whitebox16.png-5bda63abfa4b13f33956cb7e395d170d.ctex"
+uid="uid://cuawtsbbvv4mt"
+path="res://.godot/imported/WeaponHammer.png-8293d676606f3b1af31baa140fb05f87.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://whitebox16.png"
-dest_files=["res://.godot/imported/whitebox16.png-5bda63abfa4b13f33956cb7e395d170d.ctex"]
+source_file="res://art/Animations/WeaponHammer.png"
+dest_files=["res://.godot/imported/WeaponHammer.png-8293d676606f3b1af31baa140fb05f87.ctex"]
 
 [params]
 

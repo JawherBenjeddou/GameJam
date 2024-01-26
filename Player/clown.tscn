@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://byv2nw33246r1"]
 
 [ext_resource type="Script" path="res://Player/clown.gd" id="1_nce81"]
-[ext_resource type="Texture2D" uid="uid://cowf407toa7td" path="res://art/PlayerModel.png" id="2_kx40o"]
+[ext_resource type="Texture2D" uid="uid://cpvrjy6s00f26" path="res://art/Sprites/Player/PlayerModel.png" id="2_kx40o"]
 [ext_resource type="PackedScene" uid="uid://e6n721ejmec2" path="res://Player/weapons/hand.tscn" id="3_yixb2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n7r4i"]

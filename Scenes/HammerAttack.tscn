@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=3 uid="uid://mjvj3kl5mceb"]
+
+[ext_resource type="Script" path="res://scripts/Attacks/HammerAttack.gd" id="1_dr161"]
+[ext_resource type="Texture2D" uid="uid://cuawtsbbvv4mt" path="res://art/Animations/WeaponHammer.png" id="2_yjhw5"]
+
+[sub_resource type="Animation" id="Animation_kmq6h"]
+resource_name = "melee"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rtl7l"]
+_data = {
+"melee": SubResource("Animation_kmq6h")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4084"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(0, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yemoi"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(34, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foo0v"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(68, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_solvo"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(102, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wffm"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(136, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y8vc"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(170, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4l1n"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(204, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qru1u"]
+atlas = ExtResource("2_yjhw5")
+region = Rect2(238, 34, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u31v3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4084")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4084")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yemoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foo0v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_solvo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wffm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y8vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4l1n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qru1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4084")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4084")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="hammer" type="Node2D"]
+script = ExtResource("1_dr161")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rtl7l")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Marker2D"]
+position = Vector2(67, 50)
+sprite_frames = SubResource("SpriteFrames_u31v3")
