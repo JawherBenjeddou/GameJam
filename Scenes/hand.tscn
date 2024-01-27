@@ -1,0 +1,99 @@
+[gd_scene load_steps=15 format=3 uid="uid://e6n721ejmec2"]
+
+[ext_resource type="Script" path="res://scripts/Attacks/hand.gd" id="1_rtrei"]
+[ext_resource type="Texture2D" uid="uid://ch0ivuugri24t" path="res://art/Animations/WeaponHand.png" id="2_gsain"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2u274"]
+radius = 20.0
+height = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgpf7"]
+atlas = ExtResource("2_gsain")
+region = Rect2(0, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt7rs"]
+atlas = ExtResource("2_gsain")
+region = Rect2(34, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th0c6"]
+atlas = ExtResource("2_gsain")
+region = Rect2(68, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bwal"]
+atlas = ExtResource("2_gsain")
+region = Rect2(102, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkdiu"]
+atlas = ExtResource("2_gsain")
+region = Rect2(136, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr0io"]
+atlas = ExtResource("2_gsain")
+region = Rect2(170, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xeip7"]
+atlas = ExtResource("2_gsain")
+region = Rect2(204, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guxip"]
+atlas = ExtResource("2_gsain")
+region = Rect2(238, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uekw"]
+atlas = ExtResource("2_gsain")
+region = Rect2(272, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xl5s7"]
+atlas = ExtResource("2_gsain")
+region = Rect2(306, 34, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1d5xu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgpf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt7rs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th0c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bwal")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkdiu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr0io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xeip7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_guxip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uekw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xl5s7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="Hand" type="Area2D" groups=["weapon"]]
+script = ExtResource("1_rtrei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["weapon"]]
+position = Vector2(4, -5)
+shape = SubResource("CapsuleShape2D_2u274")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(8, -4)
+sprite_frames = SubResource("SpriteFrames_1d5xu")
+frame = 1
+frame_progress = 0.667147

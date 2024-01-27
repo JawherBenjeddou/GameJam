@@ -1,0 +1,126 @@
+[gd_scene load_steps=18 format=3 uid="uid://xqybohsiy6v"]
+
+[ext_resource type="Script" path="res://scripts/Attacks/plunger.gd" id="1_nh48c"]
+[ext_resource type="Texture2D" uid="uid://bj75ahxtt17wl" path="res://art/Animations/WeaponSplonge.png" id="2_pet0r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e70s"]
+size = Vector2(32, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdnh5"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(0, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7p4l"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(34, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nk3s"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(68, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c17ly"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(102, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr157"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(136, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oiax2"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(170, 34, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxwvg"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(0, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bp3qj"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(34, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8foe7"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(68, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_567so"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(102, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joyah"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(136, 68, 34, 34)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofywm"]
+atlas = ExtResource("2_pet0r")
+region = Rect2(170, 68, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y1prc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdnh5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7p4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nk3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c17ly")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kr157")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oiax2")
+}],
+"loop": false,
+"name": &"chargi",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxwvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bp3qj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8foe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_567so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joyah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofywm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r0y1f"]
+size = Vector2(30, 10)
+
+[node name="Plunger" type="Area2D" groups=["weapon"]]
+script = ExtResource("1_nh48c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_1e70s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["Weapon"]]
+sprite_frames = SubResource("SpriteFrames_y1prc")
+animation = &"chargi"
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_r0y1f")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

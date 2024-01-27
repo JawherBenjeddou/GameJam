@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://do04o2ro6m3mf"]
+
+[ext_resource type="Texture2D" uid="uid://bjtcr4mwfkfdo" path="res://art/Slime3.png" id="1_foovo"]
+[ext_resource type="Script" path="res://scripts/enemies/new_enemy.gd" id="1_n2ch8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ti1we"]
+size = Vector2(16, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jaxmu"]
+radius = 12.0416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_plf7b"]
+radius = 318.512
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
+script = ExtResource("1_n2ch8")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.03
+gravity_scale = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(0, 3)
+scale = Vector2(0.98, 0.98)
+shape = SubResource("RectangleShape2D_ti1we")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_ti1we")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_foovo")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="HurtBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_jaxmu")
+
+[node name="Detection" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detection"]
+visible = false
+shape = SubResource("CircleShape2D_plf7b")
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="body_entered" from="Detection" to="." method="_on_Player_in_sight"]

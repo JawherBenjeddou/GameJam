@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://c64j37kjhl5xk"]
+
+[ext_resource type="Texture2D" uid="uid://wac35mv84t8g" path="res://art/Animations/HealthBar.png" id="1_s7vqq"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+
+[node name="Health1" type="Sprite2D" parent="."]
+texture = ExtResource("1_s7vqq")
+hframes = 5
+
+[node name="Health2" type="Sprite2D" parent="."]
+texture = ExtResource("1_s7vqq")
+hframes = 5
+frame = 1
+
+[node name="Health3" type="Sprite2D" parent="."]
+texture = ExtResource("1_s7vqq")
+hframes = 5
+frame = 2
+
+[node name="Health4" type="Sprite2D" parent="."]
+texture = ExtResource("1_s7vqq")
+hframes = 5
+frame = 3
+
+[node name="Health5" type="Sprite2D" parent="."]
+texture = ExtResource("1_s7vqq")
+hframes = 5
+frame = 4
