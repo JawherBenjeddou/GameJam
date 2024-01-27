@@ -1,10 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://byv2nw33246r1"]
+[gd_scene load_steps=28 format=3 uid="uid://byv2nw33246r1"]
 
 [ext_resource type="Script" path="res://scripts/Character/clown.gd" id="1_nce81"]
 [ext_resource type="Texture2D" uid="uid://c0r0khqrxg8kq" path="res://art/Animations/PlayerAnimations.png" id="2_5l6c0"]
 [ext_resource type="Texture2D" uid="uid://7fo2pqwkt70r" path="res://art/Animations/PlayerDeathAnimations.png" id="2_b2s2q"]
 [ext_resource type="Script" path="res://scripts/Character/Camera2D2.gd" id="3_clmbw"]
-[ext_resource type="AudioStream" uid="uid://cgyn5ojahgkn7" path="res://art/Sound/audio fx/walk.mp3" id="5_20w2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_crhxe"]
 atlas = ExtResource("2_b2s2q")
@@ -237,8 +236,5 @@ libraries = {
 "": SubResource("AnimationLibrary_8yrgj")
 }
 speed_scale = 3.5
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_20w2a")
 
 [connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

@@ -33,11 +33,10 @@ func Autoattack (AttckType , _timer) :
 			attack.queue_free()
 	
 func _physics_process(delta): 
-
+	
 	if !PlayerDeath():
 		var direc = Input.get_vector( "ui_left" ,"ui_right","ui_up","ui_down")
 		direc=direc.normalized()
-		$AudioStreamPlayer2D.play()
 		velocity= direc * SPEED
 		
 		if Input.is_action_just_pressed("ui_accept") :
