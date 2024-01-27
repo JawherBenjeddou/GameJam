@@ -9,7 +9,8 @@ func _ready():
 
 func animationplay():
 	animationplayer.play("wait")
-
+	#to be added when music is ready
+	#$JackBoxFX.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

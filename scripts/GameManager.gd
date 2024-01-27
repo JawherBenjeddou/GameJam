@@ -7,7 +7,6 @@ var clown_instance
 @onready var Health3 = $CanvasLayer/Health3
 @onready var Health4 = $CanvasLayer/Health4
 @onready var Health5 = $CanvasLayer/Health5
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	clown_instance = $TileMap/Clown
@@ -15,7 +14,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	update_health_ui(clown_instance.ClownHealth)
-
+	var lastplayerpos = clown_instance.position
+	if clown_instance.PlayerDeath():
+		print("player died")
+		clown_instance.deathanimation.play("death")
+		var direc = Vector2.UP
+		clown_instance.velocity = direc * 100
 func update_health_ui(player_health):
 	match player_health:
 		5:

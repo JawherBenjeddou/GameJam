@@ -8,9 +8,8 @@ func _ready():
 	pass  # Replace with function body.
 
 func animationplay():
-	
 	animationplayer.play("default")
-
+	$AudioStreamPlayer2D.play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	animationplayer.play("default")

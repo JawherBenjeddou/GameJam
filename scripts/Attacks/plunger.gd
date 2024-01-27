@@ -12,6 +12,7 @@ func _physics_process(delta):
 	
 func animationplay():
 	animationplayer.play("chargi")
+	$PlungerFX.play()
 	await animationplayer.animation_finished
 	animationplayer.play("default")
 	

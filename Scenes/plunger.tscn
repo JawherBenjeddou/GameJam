@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://xqybohsiy6v"]
+[gd_scene load_steps=19 format=3 uid="uid://xqybohsiy6v"]
 
 [ext_resource type="Script" path="res://scripts/Attacks/plunger.gd" id="1_nh48c"]
 [ext_resource type="Texture2D" uid="uid://bj75ahxtt17wl" path="res://art/Animations/WeaponSplonge.png" id="2_pet0r"]
+[ext_resource type="AudioStream" uid="uid://hanvw4oribsk" path="res://art/Sound/audio fx/vantouza.wav" id="3_rfitp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1e70s"]
 size = Vector2(32, 13)
@@ -122,5 +123,8 @@ animation = &"chargi"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_r0y1f")
+
+[node name="PlungerFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_rfitp")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

@@ -230,4 +230,6 @@ visibility_layer = 3
 position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_6gghb")
 
+[node name="JackBoxFX" type="AudioStreamPlayer2D" parent="."]
+
 [connection signal="body_entered" from="HitZone" to="." method="_on_hit_zone_body_entered"]

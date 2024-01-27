@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://hanvw4oribsk"
+path="res://.godot/imported/vantouza.wav-c781acdd4aae9b67a688823ff87123da.sample"
+
+[deps]
+
+source_file="res://art/Sound/audio fx/vantouza.wav"
+dest_files=["res://.godot/imported/vantouza.wav-c781acdd4aae9b67a688823ff87123da.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://e6n721ejmec2"]
+[gd_scene load_steps=16 format=3 uid="uid://e6n721ejmec2"]
 
 [ext_resource type="Script" path="res://scripts/Attacks/hand.gd" id="1_rtrei"]
 [ext_resource type="Texture2D" uid="uid://ch0ivuugri24t" path="res://art/Animations/WeaponHand.png" id="2_gsain"]
+[ext_resource type="AudioStream" uid="uid://cvrskrp8wlsdm" path="res://art/Sound/audio fx/kaf.mp3" id="3_xy4aq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2u274"]
 radius = 20.0
@@ -97,3 +98,6 @@ position = Vector2(8, -4)
 sprite_frames = SubResource("SpriteFrames_1d5xu")
 frame = 1
 frame_progress = 0.667147
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_xy4aq")

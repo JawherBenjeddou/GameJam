@@ -1,13 +1,14 @@
-[gd_scene load_steps=16 format=3 uid="uid://mjvj3kl5mceb"]
+[gd_scene load_steps=17 format=3 uid="uid://mjvj3kl5mceb"]
 
 [ext_resource type="Script" path="res://scripts/Attacks/HammerAttack.gd" id="1_dr161"]
 [ext_resource type="Texture2D" uid="uid://cuawtsbbvv4mt" path="res://art/Animations/WeaponHammer.png" id="2_yjhw5"]
-
-[sub_resource type="Animation" id="Animation_kmq6h"]
-resource_name = "melee"
+[ext_resource type="AudioStream" uid="uid://dhdowegbiltwe" path="res://art/Sound/audio fx/hammer.wav" id="3_dsivq"]
 
 [sub_resource type="Animation" id="Animation_j7u2t"]
 length = 0.001
+
+[sub_resource type="Animation" id="Animation_kmq6h"]
+resource_name = "melee"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rtl7l"]
 _data = {
@@ -90,7 +91,6 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6u7sv"]
 radius = 6.99999
-height = 30.0
 
 [node name="hammer" type="Area2D" groups=["weapon"]]
 position = Vector2(2, 4)
@@ -113,3 +113,6 @@ frame_progress = 0.870504
 position = Vector2(20, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6u7sv")
+
+[node name="HammerFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_dsivq")
