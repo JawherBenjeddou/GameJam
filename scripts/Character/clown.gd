@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@export var SPEED = 200
+@export var SPEED = 250
 @onready var hands =preload("res://Scenes/hand.tscn")
 @onready var hammer = preload("res://Scenes/HammerAttack.tscn")
 @onready var Plunger = preload("res://Scenes/plunger.tscn")
@@ -12,6 +12,7 @@ var CurrentItem
 @onready var Item_List = [Jack , Plunger ,hammer]
 @onready var hitanimation = $AnimationPlayer
 @onready var deathanimation = $AnimatedSprite2D
+
 func Autoattack (AttckType , _timer) :
 	var attack = AttckType.instantiate()
 	
@@ -20,13 +21,13 @@ func Autoattack (AttckType , _timer) :
 		_timer.start()
 		if AttckType == Plunger :
 			get_parent().add_child(attack)
-			attack.position = $Weapon.global_position
+			attack.position = $Weapon/Marker2D.global_position
 			attack.rotation =(get_global_mouse_position() - attack.position).angle()
 		elif AttckType == Jack : 
 			get_parent().add_child(attack) 
-			attack.position = $Weapon.global_position
+			attack.position = $Weapon/Marker2D.global_position
 		else :
-			$Weapon.add_child(attack) 
+			$Weapon/Marker2D.add_child(attack) 
 		attack.animationplay()
 		await get_tree().create_timer(attack.dur).timeout
 		if attack != null : 
@@ -38,6 +39,20 @@ func _physics_process(delta):
 		var direc = Input.get_vector( "ui_left" ,"ui_right","ui_up","ui_down")
 		direc=direc.normalized()
 		velocity= direc * SPEED
+		if direc.y ==1 && direc.x == 0: 
+			deathanimation.play("Movedown")
+		elif direc.y==-1 && direc.x == 0:
+			deathanimation.play("Moveup")
+		elif direc.x == 1 : 
+			$Weapon.scale= Vector2 (1,1)
+			deathanimation.flip_h=false
+			deathanimation.play("MoveR")
+		elif direc.x == -1 : 
+			$Weapon.scale= Vector2 (-1,1)
+			deathanimation.flip_h=true
+			deathanimation.play("MoveR")
+		if direc == Vector2(0,0) :
+			deathanimation.play("default")
 		
 		if Input.is_action_just_pressed("ui_accept") :
 			Autoattack(hands  ,AttackCD )
@@ -51,8 +66,10 @@ func _physics_process(delta):
 	
 		if Input.is_action_just_pressed("hammer") && CurrentItem :
 			Autoattack(CurrentItem , AbilityCD)
+			
 			if CurrentItem == hammer :
 				$Camera2D2.shake()
+		
 	
 	
 	move_and_slide()

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://hanvw4oribsk"
-path="res://.godot/imported/vantouza.wav-c781acdd4aae9b67a688823ff87123da.sample"
+path="res://.godot/imported/vantouza.wav-97e7c1127058e506dc73e632efe542d1.sample"
 
 [deps]
 
-source_file="res://art/Sound/audio fx/vantouza.wav"
-dest_files=["res://.godot/imported/vantouza.wav-c781acdd4aae9b67a688823ff87123da.sample"]
+source_file="res://Art/Sound/audio fx/vantouza.wav"
+dest_files=["res://.godot/imported/vantouza.wav-97e7c1127058e506dc73e632efe542d1.sample"]
 
 [params]
 

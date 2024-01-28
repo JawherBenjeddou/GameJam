@@ -1,0 +1,151 @@
+[gd_scene load_steps=20 format=3 uid="uid://dsejnwvn4bhny"]
+
+[ext_resource type="Script" path="res://Scenes/training_room.gd" id="1_exqbm"]
+[ext_resource type="Texture2D" path="res://Art/Sprites/Area3.png" id="1_q3imq"]
+[ext_resource type="PackedScene" uid="uid://dc71faa8202e4" path="res://Scenes/Dummy.tscn" id="2_c7ww6"]
+[ext_resource type="PackedScene" uid="uid://byv2nw33246r1" path="res://Scenes/clown.tscn" id="2_sppj1"]
+[ext_resource type="Texture2D" path="res://Art/Animations/SecretarySprite.png" id="3_jcapt"]
+[ext_resource type="Script" path="res://scripts/Character/Camera2D2.gd" id="3_tvufk"]
+[ext_resource type="AudioStream" uid="uid://eiryyj7yr6lg" path="res://art/Sound/soundtracks/main theme mastered.wav" id="7_ly3y2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4vqq8"]
+radius = 32.3883
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccfkm"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyp62"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(32, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv7ca"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(64, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbcij"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(96, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esrbi"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(128, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqb1u"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(160, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu0ts"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(192, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whxnn"]
+atlas = ExtResource("3_jcapt")
+region = Rect2(224, 0, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yqtij"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccfkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyp62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv7ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbcij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esrbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqb1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu0ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whxnn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y3ehb"]
+radius = 52.0096
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xgork"]
+size = Vector2(45, 20)
+
+[node name="TrainingRoom" type="Node2D"]
+script = ExtResource("1_exqbm")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(143, 160)
+texture = ExtResource("1_q3imq")
+
+[node name="BG2" type="Sprite2D" parent="."]
+position = Vector2(419, 161)
+texture = ExtResource("1_q3imq")
+
+[node name="Enemy" parent="." instance=ExtResource("2_c7ww6")]
+position = Vector2(175, 225)
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+position = Vector2(139, 280)
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(66, 88)
+shape = SubResource("CircleShape2D_4vqq8")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Node2D"]
+build_mode = 1
+polygon = PackedVector2Array(-98, -60, -95, -24, -60, 0, -41, 11, -20, 20, -18, 43, -156, 45, -159, -226, -18, -226, -15, -191, -13, -111, -52, -101, -68, -91, -90, -74)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Node2D"]
+polygon = PackedVector2Array(34, 43, 31, 20, 82, 2, 105, -27, 108, -51, 96, -82, 67, -99, 29, -109, 23, -114, 24, -195, 24, -208, -16, -205, -20, -251, 137, -256, 148, -175, 146, -100, 144, 37, 140, 44)
+
+[node name="secretaire" type="AnimatedSprite2D" parent="."]
+position = Vector2(193, 269)
+sprite_frames = SubResource("SpriteFrames_yqtij")
+autoplay = "default"
+
+[node name="Clown" parent="." instance=ExtResource("2_sppj1")]
+position = Vector2(145, 299)
+
+[node name="Camera2D2" type="Camera2D" parent="Clown"]
+position = Vector2(-5, 4)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 590
+limit_bottom = 300
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("3_tvufk")
+shake_intensity = 4.925
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(194, 267)
+shape = SubResource("CircleShape2D_y3ehb")
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(143, 73)
+shape = SubResource("RectangleShape2D_xgork")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ly3y2")
+autoplay = true
+attenuation = 0.000793215
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_nextlevel_entered"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

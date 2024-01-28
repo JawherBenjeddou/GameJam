@@ -25,9 +25,10 @@ func display_text(text_to_display: String):
 		label.autowrap_mode = TextServer.AUTOWRAP_WORD
 		await resized
 		await resized
-		custom_minimum_size.y = size.y
-	global_position.x -= size.x / 2
-	global_position.y -= size.y + 24
+		custom_minimum_size.y = 100
+	#global_position.x -= size.x / 2
+	#global_position.y -= size.y + 24
+	
 	label.text = ""
 	_display_letter()
 
@@ -46,18 +47,6 @@ func _display_letter():
 			timer.start(space_time)
 		_:
 			timer.start(letter_time)
-
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 
 func _on_letter_render_timer_timeout():
 	_display_letter()

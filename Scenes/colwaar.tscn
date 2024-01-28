@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://daeyh5md58h5i"]
+
+[ext_resource type="Script" path="res://Scenes/colwaar.gd" id="1_2n1oo"]
+[ext_resource type="Texture2D" uid="uid://bal0dx7tgj36v" path="res://art/Sprites/Area4.png" id="1_psh0q"]
+[ext_resource type="PackedScene" uid="uid://byv2nw33246r1" path="res://Scenes/clown.tscn" id="2_w2gnq"]
+[ext_resource type="Script" path="res://scripts/Character/Camera2D2.gd" id="3_mxj72"]
+[ext_resource type="AudioStream" uid="uid://eiryyj7yr6lg" path="res://art/Sound/soundtracks/main theme mastered.wav" id="4_kgvc3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wtd2d"]
+size = Vector2(22, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_irfsl"]
+size = Vector2(70, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvoes"]
+size = Vector2(97.75, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f7m3b"]
+size = Vector2(160.5, 16)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2n1oo")
+
+[node name="Area4" type="Sprite2D" parent="."]
+position = Vector2(149.5, 86)
+scale = Vector2(1.03125, 1.04938)
+texture = ExtResource("1_psh0q")
+
+[node name="Area5" type="Sprite2D" parent="."]
+position = Vector2(445.5, 86)
+scale = Vector2(1.03125, 1.04938)
+texture = ExtResource("1_psh0q")
+
+[node name="Area6" type="Sprite2D" parent="."]
+position = Vector2(-147.5, 86)
+scale = Vector2(1.03125, 1.04938)
+texture = ExtResource("1_psh0q")
+
+[node name="Clown" parent="." instance=ExtResource("2_w2gnq")]
+position = Vector2(144, 143)
+
+[node name="Camera2D2" type="Camera2D" parent="Clown"]
+position = Vector2(-21, 4)
+zoom = Vector2(4, 4)
+limit_left = 0
+limit_top = 0
+limit_right = 300
+limit_bottom = 165
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("3_mxj72")
+shake_intensity = 4.925
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(173, 98, 172, 170, 128, 170, 127, 97, 1, 97, 0, 53, 17, 52, 17, 27, -27, 29, -26, 228, 398, 224, 335, 19, 288, 31, 277, 32, 278, 56, 286, 56, 287, 94, 287, 98)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(119, 44)
+shape = SubResource("RectangleShape2D_wtd2d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(204, 45)
+shape = SubResource("RectangleShape2D_irfsl")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(154, 28)
+shape = SubResource("RectangleShape2D_gvoes")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(64.125, 30)
+shape = SubResource("RectangleShape2D_gvoes")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(257, 27)
+shape = SubResource("RectangleShape2D_gvoes")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kgvc3")
+autoplay = true
+attenuation = 0.000793215
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(88.25, 41)
+shape = SubResource("RectangleShape2D_f7m3b")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

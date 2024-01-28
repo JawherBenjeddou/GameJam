@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var HP : int =10
+@export var HP : int =1
 @export var FollowSpeed : int = 70
 var PlayerChase : bool = true
 @onready var Player 
@@ -50,7 +50,6 @@ func _on_detection_area_entered(area):
 func _on_hurt_box_area_entered(body):
 	if body.name!="NewEnemy":
 		if body.is_in_group("weapon"):
-			print("Debug")
 			HP -= body.Damage
 			Direc =  -(body.position - position).normalized()
 			velocity +=Direc*900

@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://cm0ulcqp7rhpt"]
+
+[ext_resource type="Script" path="res://scripts/MainMenu.gd" id="1_206tj"]
+[ext_resource type="FontFile" uid="uid://fqv13cnf4g03" path="res://Art/Fonts/Minecraft.ttf" id="2_grwxq"]
+[ext_resource type="Texture2D" uid="uid://cu03g48xef453" path="res://art/menu/MenuButton1.png" id="3_ivef7"]
+[ext_resource type="Texture2D" uid="uid://8sgm3klrjvhn" path="res://art/menu/info.png" id="3_m1ydd"]
+[ext_resource type="Texture2D" uid="uid://d8mylwc0tsnc" path="res://art/menu/image.png" id="4_hg0kd"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_206tj")
+
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(592, 371)
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("4_hg0kd")
+
+[node name="info" type="Button" parent="."]
+layout_mode = 2
+offset_left = 1068.0
+offset_top = 2.0
+offset_right = 1109.0
+offset_bottom = 47.0
+scale = Vector2(2, 2)
+icon = ExtResource("3_m1ydd")
+flat = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_left = 468.0
+offset_top = 429.0
+offset_right = 579.0
+offset_bottom = 523.0
+scale = Vector2(1.907, 2)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_grwxq")
+icon = ExtResource("3_ivef7")
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "
+"
+icon = ExtResource("3_ivef7")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 522.0
+offset_top = 462.0
+offset_right = 579.0
+offset_bottom = 502.0
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("2_grwxq")
+text = "PLAY   "
+fit_content = true
+autowrap_mode = 0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 521.0
+offset_top = 561.0
+offset_right = 578.0
+offset_bottom = 601.0
+scale = Vector2(2, 2)
+theme_override_fonts/normal_font = ExtResource("2_grwxq")
+text = "QUIT"
+fit_content = true
+autowrap_mode = 0
+
+[connection signal="pressed" from="info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

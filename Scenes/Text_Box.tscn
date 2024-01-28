@@ -1,6 +1,47 @@
-[gd_scene format=3 uid="uid://bq4sru12nujnc"]
+[gd_scene load_steps=4 format=3 uid="uid://cu0vsyf76wb0u"]
+
+[ext_resource type="Script" path="res://scripts/Dialogue/Text_Box.gd" id="1_krvmv"]
+[ext_resource type="FontFile" uid="uid://fqv13cnf4g03" path="res://art/Fonts/Minecraft.ttf" id="2_kr145"]
+[ext_resource type="Texture2D" path="res://Art/DialogBox/DialogBox1.png" id="2_vc472"]
 
 [node name="TextBox" type="MarginContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -504.0
+offset_bottom = -288.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_krvmv")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
+texture = ExtResource("2_vc472")
+patch_margin_left = 40
+patch_margin_top = 8
+patch_margin_right = 32
+patch_margin_bottom = 8
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_kr145")
+vertical_alignment = 1
+
+[node name="LetterRenderTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="LetterRenderTimer" to="." method="_on_letter_render_timer_timeout"]

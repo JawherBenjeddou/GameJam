@@ -1,23 +1,42 @@
-[gd_scene load_steps=5 format=3 uid="uid://dc71faa8202e4"]
+[gd_scene load_steps=7 format=3 uid="uid://dc71faa8202e4"]
 
 [ext_resource type="PackedScene" uid="uid://do04o2ro6m3mf" path="res://Scenes/new_enemy.tscn" id="1_ara5m"]
 [ext_resource type="Texture2D" uid="uid://e126nfm6idyk" path="res://art/Animations/DummySprite.png" id="2_2fy5q"]
 [ext_resource type="Script" path="res://scripts/enemies/Dummy.gd" id="2_mlc0u"]
 [ext_resource type="Texture2D" uid="uid://cnca30ixgwppi" path="res://art/Animations/Heart.png" id="3_khtm6"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qost"]
+atlas = ExtResource("2_2fy5q")
+region = Rect2(0, 0, 34, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cntpc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qost")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
 [node name="Enemy" instance=ExtResource("1_ara5m")]
 script = ExtResource("2_mlc0u")
+Dead = false
 
-[node name="RigidBody2D" parent="." index="0"]
-mass = 1000.0
-lock_rotation = true
-freeze = true
+[node name="CollisionShape2D" parent="." index="0"]
+position = Vector2(3, -8)
 
-[node name="Sprite2D" parent="." index="2"]
-texture = ExtResource("2_2fy5q")
-region_rect = Rect2(1, 2, 32, 32)
+[node name="CollisionShape2D" parent="HurtBox" index="0"]
+position = Vector2(4, -6)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." index="5"]
+[node name="Detection" parent="." index="2"]
+position = Vector2(4, 0)
+
+[node name="AnimatedSprite2D" parent="." index="3"]
+visible = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." index="4"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -47,3 +66,7 @@ layout_mode = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="HBoxContainer/Panel3" index="0"]
 texture = ExtResource("3_khtm6")
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." index="5"]
+sprite_frames = SubResource("SpriteFrames_cntpc")
+autoplay = "default"

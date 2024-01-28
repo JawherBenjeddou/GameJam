@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ypsad2mx8i7"]
+
+[ext_resource type="Script" path="res://scripts/WeaponUI.gd" id="1_vjmw1"]
+[ext_resource type="Texture2D" uid="uid://b800iklvxeh12" path="res://art/UI/WeaponUI.png" id="1_ydx7d"]
+
+[node name="WeaponUi" type="CanvasLayer"]
+script = ExtResource("1_vjmw1")
+
+[node name="Hammer" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ydx7d")
+hframes = 5
+frame = 1
+
+[node name="JackBox" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ydx7d")
+hframes = 5
+frame = 2
+
+[node name="Plunger" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_ydx7d")
+hframes = 5
+frame = 3

@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdh66o4n5lh38"]
+
+[ext_resource type="Script" path="res://boss/game.gd" id="1_22xo0"]
+[ext_resource type="Texture2D" uid="uid://bgr3dk38oscnb" path="res://boss/Art/Area5.png" id="1_niopi"]
+[ext_resource type="PackedScene" uid="uid://bb7xoy1k283ac" path="res://boss/last_boss.tscn" id="2_ifbsm"]
+[ext_resource type="PackedScene" uid="uid://byv2nw33246r1" path="res://Scenes/clown.tscn" id="3_kuac4"]
+[ext_resource type="Script" path="res://scripts/Character/Camera2D2.gd" id="4_dys31"]
+
+[sub_resource type="Curve2D" id="Curve2D_a4cr6"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -108, 34, 0, 0, 0, 0, -43, 34, 0, 0, 0, 0, -16, 33, 0, 0, 0, 0, 108, 34, 0, 0, 0, 0, 31, 35, 0, 0, 0, 0, -108, 34)
+}
+point_count = 6
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_22xo0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(118, 162)
+texture = ExtResource("1_niopi")
+
+[node name="Clown" parent="." instance=ExtResource("3_kuac4")]
+
+[node name="Camera2D2" type="Camera2D" parent="Clown"]
+position = Vector2(16, 26)
+zoom = Vector2(3, 3)
+limit_left = 20
+limit_top = 0
+limit_right = 590
+limit_bottom = 970
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("4_dys31")
+shake_intensity = 4.925
+
+[node name="LastBoss" parent="." instance=ExtResource("2_ifbsm")]
+position = Vector2(121, 140)
+
+[node name="Dog Spawn" type="Path2D" parent="."]
+position = Vector2(117, 144)
+curve = SubResource("Curve2D_a4cr6")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Dog Spawn"]
+position = Vector2(75.4059, 33.7371)
+rotation = 0.00806434
+progress = 183.42
+
+[node name="Spawn Timer" type="Timer" parent="."]
+wait_time = 0.35
+autostart = true
+
+[connection signal="timeout" from="Spawn Timer" to="." method="_on_spawn_timer_timeout"]

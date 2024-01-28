@@ -1,0 +1,210 @@
+[gd_scene load_steps=21 format=3 uid="uid://c1lhfcg55xu11"]
+
+[ext_resource type="Texture2D" path="res://Art/Sprites/Area2.png" id="1_0k3ei"]
+[ext_resource type="Script" path="res://scripts/inside_tent.gd" id="1_voo2k"]
+[ext_resource type="Texture2D" path="res://Art/Animations/SecretarySprite.png" id="2_38d85"]
+[ext_resource type="PackedScene" uid="uid://byv2nw33246r1" path="res://Scenes/clown.tscn" id="3_e5nhi"]
+[ext_resource type="AudioStream" uid="uid://eiryyj7yr6lg" path="res://art/Sound/soundtracks/main theme mastered.wav" id="5_s5taj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ccfkm"]
+atlas = ExtResource("2_38d85")
+region = Rect2(0, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lyp62"]
+atlas = ExtResource("2_38d85")
+region = Rect2(32, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lv7ca"]
+atlas = ExtResource("2_38d85")
+region = Rect2(64, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbcij"]
+atlas = ExtResource("2_38d85")
+region = Rect2(96, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esrbi"]
+atlas = ExtResource("2_38d85")
+region = Rect2(128, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqb1u"]
+atlas = ExtResource("2_38d85")
+region = Rect2(160, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iu0ts"]
+atlas = ExtResource("2_38d85")
+region = Rect2(192, 0, 32, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whxnn"]
+atlas = ExtResource("2_38d85")
+region = Rect2(224, 0, 32, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mfsfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ccfkm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lyp62")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lv7ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pbcij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esrbi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqb1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iu0ts")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whxnn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_87wr4"]
+radius = 56.0357
+
+[sub_resource type="GDScript" id="GDScript_hbota"]
+script/source = "extends Camera2D
+
+var shake_duration = 0.5  # Adjust the duration of the shake
+@export var shake_intensity = 10.0  # Adjust the intensity of the shake
+var shake_timer = -1
+@onready var InitPos = position
+func _process(delta):
+	if shake_timer > 0:
+		# Generate a random offset for the camera position
+		var offset = Vector2(randf_range(-shake_intensity, shake_intensity), randf_range(-shake_intensity, shake_intensity))
+
+
+		offset_camera(offset)
+
+#Decrease the shake timer
+		shake_timer -= delta
+	elif shake_timer <0  :
+		# Reset the camera position when the shake is done
+		position = InitPos
+
+func shake():
+	# Start the shake by setting the shake timer
+	shake_timer = shake_duration
+
+func offset_camera(offset):
+	# Offset the camera position
+	offset.x = clamp(offset.x, -shake_intensity, shake_intensity)
+	offset.y = clamp(offset.y, -shake_intensity, shake_intensity)
+
+#Set the new camera position
+	position += offset
+
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7k0m"]
+size = Vector2(56, 228.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8emc"]
+size = Vector2(327.5, 134.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t15yk"]
+radius = 32.3883
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yrtp8"]
+radius = 19.105
+
+[node name="insideTent" type="Node2D"]
+script = ExtResource("1_voo2k")
+
+[node name="BG2" type="Sprite2D" parent="."]
+position = Vector2(158.174, 129.25)
+scale = Vector2(1.09149, 1.09149)
+texture = ExtResource("1_0k3ei")
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(463, 122)
+scale = Vector2(1.09149, 1.09149)
+texture = ExtResource("1_0k3ei")
+
+[node name="secretaire" type="AnimatedSprite2D" parent="."]
+position = Vector2(108, 140)
+sprite_frames = SubResource("SpriteFrames_mfsfw")
+autoplay = "default"
+
+[node name="secretairearea" type="Area2D" parent="secretaire"]
+position = Vector2(-47, -21)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="secretaire/secretairearea"]
+position = Vector2(1, 2)
+shape = SubResource("CircleShape2D_87wr4")
+
+[node name="Clown" parent="." instance=ExtResource("3_e5nhi")]
+position = Vector2(118, 228)
+
+[node name="Camera2D2" type="Camera2D" parent="Clown"]
+position = Vector2(-22, 10)
+zoom = Vector2(4, 4)
+limit_left = 20
+limit_top = 0
+limit_right = 300
+limit_bottom = 250
+limit_smoothed = true
+position_smoothing_enabled = true
+script = SubResource("GDScript_hbota")
+shake_intensity = 4.925
+
+[node name="Node2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(-18, 49)
+shape = SubResource("RectangleShape2D_j7k0m")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(-18, 208)
+shape = SubResource("RectangleShape2D_j7k0m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(347, 223)
+shape = SubResource("RectangleShape2D_j7k0m")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(348, 56.75)
+shape = SubResource("RectangleShape2D_j7k0m")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(167, 318)
+shape = SubResource("RectangleShape2D_j8emc")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(158, -61)
+shape = SubResource("RectangleShape2D_j8emc")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(119, 31)
+shape = SubResource("CircleShape2D_t15yk")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Node2D"]
+position = Vector2(199, 32)
+shape = SubResource("CircleShape2D_t15yk")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(158, 54)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_yrtp8")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_s5taj")
+autoplay = true
+attenuation = 0.000793215
+
+[connection signal="body_entered" from="secretaire/secretairearea" to="." method="_on_secretairearea_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

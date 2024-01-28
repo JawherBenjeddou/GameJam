@@ -1,6 +1,6 @@
 extends Area2D
 var Damage = 1
-var dur=0.9
+var dur=0.6
 var CoolDown= 1
 @onready var animationplayer = $AnimatedSprite2D
 # Called when the node enters the scene tree for the first time.

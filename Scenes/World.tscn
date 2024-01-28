@@ -1,12 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://sxh2apk6ne40"]
+[gd_scene load_steps=13 format=3 uid="uid://sxh2apk6ne40"]
 
 [ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_1iasg"]
 [ext_resource type="Texture2D" uid="uid://7cqdaol6npur" path="res://art/TilesetFloor.png" id="1_kxvpg"]
 [ext_resource type="PackedScene" uid="uid://byv2nw33246r1" path="res://Scenes/clown.tscn" id="1_mo5dx"]
-[ext_resource type="Texture2D" uid="uid://dk7xdhln67ihn" path="res://art/Sprites/Area1.png" id="2_hiafk"]
+[ext_resource type="Texture2D" path="res://Art/Sprites/Area1.png" id="2_hiafk"]
 [ext_resource type="PackedScene" uid="uid://do04o2ro6m3mf" path="res://Scenes/new_enemy.tscn" id="5_6y767"]
 [ext_resource type="PackedScene" uid="uid://c64j37kjhl5xk" path="res://Scenes/UI.tscn" id="5_vbs1v"]
+[ext_resource type="Script" path="res://scripts/Character/Camera2D2.gd" id="6_a21v8"]
 [ext_resource type="PackedScene" uid="uid://dc71faa8202e4" path="res://Scenes/Dummy.tscn" id="7_0xlve"]
+[ext_resource type="PackedScene" uid="uid://bmwx62khsn3pf" path="res://Scenes/boss.tscn" id="9_lcymj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ntja1"]
 texture = ExtResource("1_kxvpg")
@@ -638,8 +640,21 @@ layer_1/tile_data = PackedInt32Array(262160, 1, 5, 327696, 1, 6, 393232, 1, 7, 7
 y_sort_enabled = true
 position = Vector2(320, 107)
 
+[node name="Camera2D2" type="Camera2D" parent="TileMap/Clown"]
+zoom = Vector2(3, 3)
+limit_left = 20
+limit_top = 0
+limit_right = 590
+limit_bottom = 970
+limit_smoothed = true
+position_smoothing_enabled = true
+script = ExtResource("6_a21v8")
+shake_intensity = 4.925
+
 [node name="NewEnemy" parent="TileMap" instance=ExtResource("5_6y767")]
 position = Vector2(213, 238)
 
 [node name="Enemy" parent="TileMap" instance=ExtResource("7_0xlve")]
 position = Vector2(241, 96)
+
+[node name="Boss" parent="TileMap" instance=ExtResource("9_lcymj")]

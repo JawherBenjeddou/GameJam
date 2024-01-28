@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://je4sxn0wf700"]
+
+[ext_resource type="Texture2D" uid="uid://0wnp8tbcim03" path="res://art/menu/A_black_image.jpg.webp" id="1_66tks"]
+[ext_resource type="Script" path="res://Scenes/InfoScreen.gd" id="1_it3vr"]
+[ext_resource type="FontFile" uid="uid://fqv13cnf4g03" path="res://art/Fonts/Minecraft.ttf" id="2_r23jc"]
+[ext_resource type="Texture2D" uid="uid://bgevnsyobyfpx" path="res://art/menu/8577605.png" id="3_und5i"]
+[ext_resource type="Texture2D" uid="uid://yyyk83p6j6pk" path="res://art/menu/back.png" id="5_yaywd"]
+
+[node name="InfoScreen" type="Node2D"]
+script = ExtResource("1_it3vr")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(583, 310)
+scale = Vector2(2, 2)
+texture = ExtResource("1_66tks")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 151.0
+offset_top = 63.0
+offset_right = 594.0
+offset_bottom = 319.0
+scale = Vector2(1.714, 2)
+theme_override_fonts/normal_font = ExtResource("2_r23jc")
+text = "								Credits:
+
+						  Programming / Art :
+						  Sofiene Kammoun
+
+
+							Programming :
+						   Jawher Benjeddou
+
+
+							Art and Animation:
+									Dali
+
+			
+							Sound and Music:
+								 Jass Fbc"
+fit_content = true
+autowrap_mode = 0
+tab_size = 5
+
+[node name="smile" type="Sprite2D" parent="."]
+position = Vector2(637, 74)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_und5i")
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+scale = Vector2(2, 2)
+icon = ExtResource("5_yaywd")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
