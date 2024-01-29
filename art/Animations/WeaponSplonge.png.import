@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj75ahxtt17wl"
-path="res://.godot/imported/WeaponSplonge.png-6ec0bd70458e15bf53003d81e40b698e.ctex"
+path="res://.godot/imported/WeaponSplonge.png-ad87d51d7e0a3650e0e720b28ee39b60.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Animations/WeaponSplonge.png"
-dest_files=["res://.godot/imported/WeaponSplonge.png-6ec0bd70458e15bf53003d81e40b698e.ctex"]
+source_file="res://art/Animations/WeaponSplonge.png"
+dest_files=["res://.godot/imported/WeaponSplonge.png-ad87d51d7e0a3650e0e720b28ee39b60.ctex"]
 
 [params]
 

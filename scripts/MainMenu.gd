@@ -11,4 +11,4 @@ func _on_exit_pressed():
 
 
 func _on_info_pressed():
-	pass
+	get_tree().change_scene_to_file("res://Scenes/InfoScreen.tscn")

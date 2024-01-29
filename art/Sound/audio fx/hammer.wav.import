@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dhdowegbiltwe"
-path="res://.godot/imported/hammer.wav-d18588e1fc5b30d4bd5041532a87b81f.sample"
+path="res://.godot/imported/hammer.wav-42d31ec62a9f074973f7fc946e0c6bcf.sample"
 
 [deps]
 
-source_file="res://Art/Sound/audio fx/hammer.wav"
-dest_files=["res://.godot/imported/hammer.wav-d18588e1fc5b30d4bd5041532a87b81f.sample"]
+source_file="res://art/Sound/audio fx/hammer.wav"
+dest_files=["res://.godot/imported/hammer.wav-42d31ec62a9f074973f7fc946e0c6bcf.sample"]
 
 [params]
 

@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://y1ptdn1dqxng"
-path="res://.godot/imported/soundtrack fight 1.wav-8fc20eeddcb58d15859819e81b37c652.sample"
+path="res://.godot/imported/soundtrack fight 1.wav-34d88d5c814df4a9267251c40103a903.sample"
 
 [deps]
 
-source_file="res://Art/Sound/soundtracks/soundtrack fight 1.wav"
-dest_files=["res://.godot/imported/soundtrack fight 1.wav-8fc20eeddcb58d15859819e81b37c652.sample"]
+source_file="res://art/Sound/soundtracks/soundtrack fight 1.wav"
+dest_files=["res://.godot/imported/soundtrack fight 1.wav-34d88d5c814df4a9267251c40103a903.sample"]
 
 [params]
 

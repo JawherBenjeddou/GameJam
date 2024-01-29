@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=3 uid="uid://bmwx62khsn3pf"]
 
 [ext_resource type="Script" path="res://Scenes/boss.gd" id="1_176eh"]
-[ext_resource type="Texture2D" uid="uid://d7156fpop125" path="res://Art/Animations/Boss1Sprite.png" id="2_qw3sp"]
+[ext_resource type="Texture2D" uid="uid://d7156fpop125" path="res://art/Animations/Boss1Sprite.png" id="2_qw3sp"]
 [ext_resource type="PackedScene" uid="uid://mjvj3kl5mceb" path="res://Scenes/HammerAttack.tscn" id="3_6xdn8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rp60q"]

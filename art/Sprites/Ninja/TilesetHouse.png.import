@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cwwovcpm0lipy"
-path="res://.godot/imported/TilesetHouse.png-ee8429a7fd548d15de40f31727b02ea2.ctex"
+path="res://.godot/imported/TilesetHouse.png-5698fae5e9b87a6ba88e8afa620d9d46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Sprites/Ninja/TilesetHouse.png"
-dest_files=["res://.godot/imported/TilesetHouse.png-ee8429a7fd548d15de40f31727b02ea2.ctex"]
+source_file="res://art/Sprites/Ninja/TilesetHouse.png"
+dest_files=["res://.godot/imported/TilesetHouse.png-5698fae5e9b87a6ba88e8afa620d9d46.ctex"]
 
 [params]
 

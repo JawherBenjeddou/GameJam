@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7klxfwum5wbf"
-path="res://.godot/imported/WeaponJackBox.png-634b8704d6bd63b0f5d70d4483305bed.ctex"
+path="res://.godot/imported/WeaponJackBox.png-38ee194c2085340062160750fb260be0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Animations/WeaponJackBox.png"
-dest_files=["res://.godot/imported/WeaponJackBox.png-634b8704d6bd63b0f5d70d4483305bed.ctex"]
+source_file="res://art/Animations/WeaponJackBox.png"
+dest_files=["res://.godot/imported/WeaponJackBox.png-38ee194c2085340062160750fb260be0.ctex"]
 
 [params]
 

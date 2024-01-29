@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c64j37kjhl5xk" path="res://Scenes/UI.tscn" id="2_jtxh1"]
 [ext_resource type="PackedScene" uid="uid://byv2nw33246r1" path="res://Scenes/clown.tscn" id="3_15r0g"]
 [ext_resource type="Script" path="res://scripts/Character/Camera2D2.gd" id="4_sd3ik"]
-[ext_resource type="AudioStream" uid="uid://ccqsbl5o34iuk" path="res://art/Sound/soundtracks/soundtrack fight 1.wav" id="7_3uvln"]
+[ext_resource type="AudioStream" uid="uid://y1ptdn1dqxng" path="res://art/Sound/soundtracks/soundtrack fight 1.wav" id="7_3uvln"]
 [ext_resource type="AudioStream" uid="uid://cpqcj8arwyq4h" path="res://Deatj/player_dies.wav" id="8_ym00p"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ouyd7"]
@@ -399,6 +399,9 @@ position = Vector2(-34, 8)
 script = ExtResource("1_6tw4g")
 
 [node name="CanvasLayer" parent="." instance=ExtResource("2_jtxh1")]
+offset = Vector2(80, 65)
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 80, 65)
 
 [node name="TileMap" type="TileMap" parent="."]
 z_as_relative = false
